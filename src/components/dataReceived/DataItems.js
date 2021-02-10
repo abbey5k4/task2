@@ -1,6 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 
 const DataItems = ({ datum }) => {
+    
+    const [ image, setImage ] = useState("");
+      useEffect(() => {
+          const getImg = async() => {
+              const res = await axios.get(`https://avatars.dicebear.com/v2/avataaars/${datum.username}.svg?options[mood][]=happy`)
+              console.log(res.config.url)
+              setImage(res.config.url);
+          }
+          getImg()
+      }, [])
     return (
         <div>
             <div className="container">
@@ -8,9 +19,8 @@ const DataItems = ({ datum }) => {
                     <div className="col cardHolder">
                         <div className="card-group">
                             <div className="card">
-                                <img className="card-img-top" src="..." alt="User image" />
+                                <img className="card-img-top" src={image} alt="User image" />
                                 <div className="card-body">
-                                    {/* <h5 className="card-title">{datum.username}</h5> */}
                                     <p>
                                         <strong>Name: </strong>{datum.name}
                                     </p>

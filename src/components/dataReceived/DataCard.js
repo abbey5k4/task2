@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Spinner from '../ui/Spinner'
 import DataItems from './DataItems'
 

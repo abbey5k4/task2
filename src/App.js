@@ -4,8 +4,9 @@ import './App.css';
 import DataCard from "./components/dataReceived/DataCard";
 
 function App() {
-  const [ data, setData ] = React.useState([]);
+  const [ data, setData ] = useState([]);
   const [ isLoading, setIsLoading ] = React.useState(true);
+  const [ image, setImage ] = useState("");
 
   useEffect(() => {
     const fetchData = async() => {
@@ -16,10 +17,11 @@ function App() {
       setIsLoading(false);
     }
     fetchData();
-  }, [])
+  }, []);
+  
   return (
     <div className="App">
-      <DataCard isLoading = { isLoading } data = { data } />
+      <DataCard isLoading = { isLoading } data = { data } image = {image} />
     </div>
   );
 }
