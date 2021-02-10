@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
 const DataItems = ({ datum }) => {
-    
     const [ image, setImage ] = useState("");
       useEffect(() => {
           const getImg = async() => {
               const res = await axios.get(`https://avatars.dicebear.com/v2/avataaars/${datum.username}.svg?options[mood][]=happy`)
-              console.log(res.config.url)
+            //   console.log(res.config.url)
               setImage(res.config.url);
           }
           getImg()
@@ -16,8 +15,8 @@ const DataItems = ({ datum }) => {
         <div>
             <div className="container">
                 <div className="row">
-                    <div className="col cardHolder">
-                        <div className="card-group">
+                    <div className="col-lg-5 m-auto" >
+                        <div className="card-group mt-2">
                             <div className="card">
                                 <img className="card-img-top" src={image} alt="User image" />
                                 <div className="card-body">

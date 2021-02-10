@@ -37,11 +37,13 @@
   }
 }
 
+
 @media (max-width: 500px) {
   .App {
     text-align: left;
   }
 }
+
 
 
 
