@@ -17,12 +17,12 @@ const DataItems = ({ datum }) => {
   return (
     <div className="container">
       <Row>
-        <Col xs={24} sm={24} md={6} lg={12} xl={24}>
+        <Col xs={24} sm={24} md={24} lg={12} xl={24}>
           <Row>
             <Col xs={24} sm={24} md={6} lg={12} xl={6}>
               <img className="card-img" src={image} alt="User image" />
             </Col>
-            <Col xs={24} sm={24} md={6} lg={12} xl={15}>
+            <Col xs={24} sm={24} md={12} lg={12} xl={15}>
               <div className="card-body">
                 <p>
                   <strong>Name: </strong>
