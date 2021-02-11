@@ -4,13 +4,13 @@ import DataItems from './DataItems'
 
 const DataCard = ({ isLoading, data }) => {
     return (
-        isLoading ? (<Spinner />) : (<div>
-            {
-                data.map((datum) => (
-                    <DataItems datum= {datum} key={datum.id}></DataItems>
-                ))}
-        </div>)
+        isLoading ? (<Spinner />) : (<div className="container">
+                    {
+                         data.map((datum) => (
+                        <DataItems datum= {datum} key={datum.id}></DataItems>
+                    ))} 
+                </div>)
     )
-}
+};
 
 export default DataCard

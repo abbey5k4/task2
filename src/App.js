@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import './App.css';
 import DataCard from "./components/dataReceived/DataCard";
+import 'antd/dist/antd.css';
 
 function App() {
   const [ data, setData ] = useState([]);
