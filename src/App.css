@@ -59,10 +59,6 @@ html, body {
   .App {
     text-align: left;
   }
-  .card {
-    /* margin: 0 auto; */
-    padding: 20px;
-  }
   .container {
     padding: 10px 30px;
   }
