@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Row, Col } from "antd";
+import { Card, Avatar } from "antd";
+import {
+  EditOutlined,
+  EllipsisOutlined,
+  SettingOutlined,
+} from "@ant-design/icons";
 
 const DataItems = ({ datum }) => {
   const [image, setImage] = useState("");
@@ -14,49 +19,51 @@ const DataItems = ({ datum }) => {
     };
     getImg();
   }, []);
+
+  const { Meta } = Card;
   return (
-    <div className="container">
-      <Row>
-        <Col xs={24} sm={24} md={24} lg={12} xl={24}>
-          <Row>
-            <Col xs={24} sm={24} md={6} lg={12} xl={6}>
-              <img className="card-img" src={image} alt="User image" />
-            </Col>
-            <Col xs={24} sm={24} md={12} lg={12} xl={15}>
-              <div className="card-body">
-                <p>
-                  <strong>Name: </strong>
-                  {datum.name}
-                </p>
-                <p>
-                  <strong>Email: </strong>
-                  {datum.email}
-                </p>
-                <p>
-                  <strong>Phone: </strong>
-                  {datum.phone}
-                </p>
-                <p>
-                  <strong>Email: </strong>
-                  {datum.email}
-                </p>
-                <p>
-                  <strong>Address: </strong>
-                  {`${datum.address.suite}, ${datum.address.street}, ${datum.address.city}`}
-                </p>
-                <p>
-                  <strong>Website: </strong>
-                  {datum.website}
-                </p>
-                <p>
-                  <strong>Company: </strong>
-                  {datum.company.name}
-                </p>
-              </div>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+    <div>
+      <Card
+        // style={{ width: 300 }}
+        cover={<div className="imgHolder"><img alt="example" src={image} style={{width: "200px", height: "200px"}}/></div>}
+        actions={[
+          <SettingOutlined key="setting" />,
+          <EditOutlined key="edit" />,
+          <EllipsisOutlined key="ellipsis" />,
+        ]}
+        className="card"
+      >
+        <div className="card-body">
+          <p>
+            <strong>Name: </strong>
+            {datum.name}
+          </p>
+          {/* <p>
+            <strong>Email: </strong>
+            {datum.email}
+          </p>
+          <p>
+            <strong>Phone: </strong>
+            {datum.phone}
+          </p> */}
+          <p>
+            <strong>Email: </strong>
+            {datum.email}
+          </p>
+          {/* <p>
+            <strong>Address: </strong>
+            {`${datum.address.suite}, ${datum.address.street}, ${datum.address.city}`}
+          </p>
+          <p>
+            <strong>Website: </strong>
+            {datum.website}
+          </p>
+          <p>
+            <strong>Company: </strong>
+            {datum.company.name}
+          </p> */}
+        </div>
+      </Card>
     </div>
   );
 };
