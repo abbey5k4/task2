@@ -11,7 +11,7 @@ const DataCard = ({ isLoading, data }) => {
     <div className="container">
       <Row gutter={16}>
         {data.map((datum) => (
-          <Col xs={24} sm={24} md={8} lg={8} xl={6} className="column">
+          <Col xs={24} sm={24} md={8} lg={8} xl={6} className="column" key={datum.id}>
             <DataItems datum={datum} key={datum.id}></DataItems>
           </Col>
         ))}

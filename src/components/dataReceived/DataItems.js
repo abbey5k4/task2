@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Card, Avatar } from "antd";
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { Card } from "antd";
 
 const DataItems = ({ datum }) => {
   const [image, setImage] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [values, setValues] = useState({
+    // id: "",
+    fullname: "",
+    email: {},
+    website: "",
+    phone: "",
+    address: ""
+  });
+  const handleChanges = (name) => (e) => {
+      setValues({
+        ...values,
+        [name]: e.target.value,
+      });
+  }
+
+  
   useEffect(() => {
     const getImg = async () => {
       const res = await axios.get(
@@ -23,29 +35,22 @@ const DataItems = ({ datum }) => {
   const { Meta } = Card;
   return (
     <div>
+      
       <Card
         // style={{ width: 300 }}
         cover={<div className="imgHolder"><img alt="example" src={image} style={{width: "200px", height: "200px"}}/></div>}
-        actions={[
-          <SettingOutlined key="setting" />,
-          <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
-        ]}
+        // actions={[
+        //   <SettingOutlined key="setting" />,
+        //   <EditOutlined key="edit" onClick={showModal} />,
+        //   <EllipsisOutlined key="ellipsis" />,
+        // ]}
         className="card"
       >
         <div className="card-body">
           <p>
-            <strong>Name: </strong>
-            {datum.name}
+            <h2>{datum.name} </h2>
+            
           </p>
-          {/* <p>
-            <strong>Email: </strong>
-            {datum.email}
-          </p>
-          <p>
-            <strong>Phone: </strong>
-            {datum.phone}
-          </p> */}
           <p>
             <strong>Email: </strong>
             {datum.email}
@@ -53,7 +58,7 @@ const DataItems = ({ datum }) => {
           {/* <p>
             <strong>Address: </strong>
             {`${datum.address.suite}, ${datum.address.street}, ${datum.address.city}`}
-          </p>
+          </p> */}
           <p>
             <strong>Website: </strong>
             {datum.website}
@@ -61,7 +66,7 @@ const DataItems = ({ datum }) => {
           <p>
             <strong>Company: </strong>
             {datum.company.name}
-          </p> */}
+          </p>
         </div>
       </Card>
     </div>
