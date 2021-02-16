@@ -31,10 +31,7 @@ const DataItems = ({ datum }) => {
         className="card"
       >
         <div className="card-body">
-          <p>
-            <h2>{datum.name} </h2>
-            
-          </p>
+          <h2>{datum.name} </h2>
           <p>
             <strong>Email: </strong>
             {datum.email}
