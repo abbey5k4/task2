@@ -4,22 +4,6 @@ import { Card } from "antd";
 
 const DataItems = ({ datum }) => {
   const [image, setImage] = useState("");
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [values, setValues] = useState({
-    // id: "",
-    fullname: "",
-    email: {},
-    website: "",
-    phone: "",
-    address: ""
-  });
-  const handleChanges = (name) => (e) => {
-      setValues({
-        ...values,
-        [name]: e.target.value,
-      });
-  }
-
   
   useEffect(() => {
     const getImg = async () => {
@@ -55,10 +39,10 @@ const DataItems = ({ datum }) => {
             <strong>Email: </strong>
             {datum.email}
           </p>
-          {/* <p>
+          <p>
             <strong>Address: </strong>
-            {`${datum.address.suite}, ${datum.address.street}, ${datum.address.city}`}
-          </p> */}
+            {`${datum.address.suite}, ${datum.address.street}`}
+          </p>
           <p>
             <strong>Website: </strong>
             {datum.website}
